@@ -7,6 +7,7 @@ function App() {
     <div className="app-container">
       <Sidebar />
       <main className="main-content">
+        
         <Input />
       </main>
     </div>
