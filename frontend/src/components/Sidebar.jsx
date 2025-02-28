@@ -3,7 +3,7 @@ const Sidebar = () => {
 
   return (
     <section className="sidebar">
-      <button className="new-chat-button" >
+      <button className="btn glass new-chat-button" >
         + New Chat
       </button>
      
