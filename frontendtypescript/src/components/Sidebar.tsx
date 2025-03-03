@@ -1,6 +1,6 @@
 
-const Sidebar = () => {
 
+const Sidebar = () => {
   return (
     <section className="sidebar">
       <button className="btn glass new-chat-button" >
@@ -8,8 +8,7 @@ const Sidebar = () => {
       </button>
      
     </section>
-  );
-  
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

@@ -3,6 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* removes default margin and padding from the page */
 * {
   margin: 0;
@@ -60,7 +61,7 @@
   align-items: stretch;
   background-color: #303030;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
   padding: 5px;
 }
 
@@ -78,7 +79,7 @@
   resize: none;
   line-height: normal;
   overflow-y: auto; /* Show scrollbar only when needed */
-  
+  width: 100%; /* Set width to 100% */
 }
 
 /* Remove input outline */

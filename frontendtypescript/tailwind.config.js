@@ -1,9 +1,10 @@
 import daisyui from "daisyui"
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./components/**/*.{js,jsx}",
-    "./src/**/*.{js,jsx}",
+    "./components/**/*.{js,tsx}",
+    "./src/**/*.{js,tsx}",
   ],
   theme: {
     container: {
@@ -23,4 +24,3 @@ export default {
   },
   plugins: [daisyui],
 }
-
