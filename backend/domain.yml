@@ -15,7 +15,7 @@ responses:
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
-    image: "https://tse1.mm.bing.net/th?id=OIP.mJsmuhPT8mUrsiWJWeHdWQHaE7&pid=Api&P=0&h=180"
+    image: "https://img.freepik.com/free-photo/front-view-beautiful-blonde-woman_23-2148483070.jpg?t=st=1741348708~exp=1741352308~hmac=446bcbc988ca55c5c751bab801c5e57db03d1f2aabbc98e754bc78586d617995&w=2000"
 
   utter_did_that_help:
   - text: "Did that help you?"
