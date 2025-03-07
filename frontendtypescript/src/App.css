@@ -26,7 +26,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  border: 1px solid lightgrey;
   background-color: #212121;
 }
 
@@ -38,18 +37,11 @@
   justify-content: flex-start; 
   padding: 10px;
   width: 80%;
-  scrollbar-width: thin; 
-  overflow-y: auto;
+  scrollbar-width: auto; 
+  overflow-y: scroll;
+  max-height: 100%; 
 }
 
-.chat-container::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chat-container::-webkit-scrollbar-thumb {
-  background-color: #efeaea;
-  border-radius: 10px;
-}
 
 .input-container {
   position: fixed;
@@ -79,7 +71,9 @@
   resize: none;
   line-height: normal;
   overflow-y: auto; /* Show scrollbar only when needed */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
   width: 100%; /* Set width to 100% */
+  white-space: pre-wrap; /* Ensure text wraps to the next line */
 }
 
 /* Remove input outline */
@@ -87,6 +81,7 @@
   outline: none;
   box-shadow: none;
 }
+
 
 /* sidebar styling where to hold all previous chats */
 .sidebar {
@@ -113,4 +108,19 @@
 }
 
 .new-chat-button:hover {
+}
+
+.rasa-bubble {
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.rasa-image {
+  max-width: 80%;
+  border-radius: 8px;
+  margin-top: 10px;
 }

@@ -18,6 +18,13 @@ const Input = ({ onSendMessage }: InputProps) => {
     }
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit(e as unknown as React.FormEvent);
+    }
+  }
+
   return (
     <section className="input-container">
       <form onSubmit={handleSubmit}>
@@ -26,6 +33,7 @@ const Input = ({ onSendMessage }: InputProps) => {
           placeholder="Ask Anything" 
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <div className="flex justify-end m-2">
           <button 
