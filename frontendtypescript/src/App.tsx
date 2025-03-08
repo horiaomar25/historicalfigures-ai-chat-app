@@ -5,6 +5,7 @@ import ChatBubble from "./components/ChatBubble";
 import Input from "./components/Input";
 
 import RasaResponse from "./components/RasaResponse";
+import Logo from "./components/Logo";
 
 // interface for message
 interface Message {
@@ -65,6 +66,13 @@ function App() {
     <div className="app-container">
       <Sidebar />
       <main className="main-content">
+        {messages.length === 0 && (
+        <div className="logo-container">
+          <Logo/>
+        </div>
+        )}
+        
+        
         <section className="chat-container" ref={chatContainerref}>
           {messages.map((message, index) =>
             message.sender === "user" ? (

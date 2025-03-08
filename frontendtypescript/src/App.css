@@ -107,8 +107,6 @@
   cursor: pointer;
 }
 
-.new-chat-button:hover {
-}
 
 .rasa-bubble {
   color: white;
@@ -123,4 +121,11 @@
   max-width: 80%;
   border-radius: 8px;
   margin-top: 10px;
+}
+
+.logo-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
