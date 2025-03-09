@@ -2,3 +2,5 @@ myvenv/
 
 .rasa/
 
+.env
+

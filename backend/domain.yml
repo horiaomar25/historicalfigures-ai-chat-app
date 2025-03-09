@@ -8,27 +8,63 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - search_wikipedia
+  - get_historical_figure
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hey! How are you?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://img.freepik.com/free-photo/front-view-beautiful-blonde-woman_23-2148483070.jpg?t=st=1741348708~exp=1741352308~hmac=446bcbc988ca55c5c751bab801c5e57db03d1f2aabbc98e754bc78586d617995&w=2000"
+    - text: "Here is something to cheer you up:"
+      image: "https://img.freepik.com/free-photo/front-view-beautiful-blonde-woman_23-2148483070.jpg?t=st=1741348708~exp=1741352308~hmac=446bcbc988ca55c5c751bab801c5e57db03d1f2aabbc98e754bc78586d617995&w=2000"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Goodbye!"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
+
+actions:
+  - action_fetch_wiki
+  - action_fetch_historical_figure
+  - action_restart
+  - action_default_fallback
+  - action_deactivate_loop
+  - action_revert_fallback_events
+  - action_default_ask_affirmation
+  - action_default_ask_rephrase
+  - action_two_stage_fallback
+  - action_unlikely_intent
+  - action_back
+
+entities:
+  - search_query
+  - historical_figure
+
+slots:
+  search_query:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: search_query
+
+  historical_figure:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: historical_figure
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+
+
+

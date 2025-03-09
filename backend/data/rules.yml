@@ -11,3 +11,13 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Fetch information from Wikipedia
+  steps:
+  - intent: search_wikipedia
+  - action: action_fetch_wiki
+
+- rule: Fetch information about a historical figure
+  steps:
+  - intent: get_historical_figure
+  - action: action_fetch_historical_figure

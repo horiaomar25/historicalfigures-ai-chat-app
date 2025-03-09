@@ -2,29 +2,13 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: Wikipedia search
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+    - intent: search_wikipedia
+    - action: action_fetch_wiki
 
-- story: sad path 1
+- story: Historical figure info
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+   - intent: get_historical_figure
+   - action: action_fetch_historical_figure
 
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye

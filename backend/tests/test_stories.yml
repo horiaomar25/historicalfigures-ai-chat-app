@@ -1,87 +1,47 @@
 #### This file contains tests to evaluate that your bot behaves as expected.
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+version: "3.1"
+
 stories:
-- story: happy path 1
+- story: Wikipedia search
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+      Tell me about Albert Einstein from Wikipedia.
+    intent: search_wikipedia
+    entities:
+      - search_query: "Albert Einstein"
+  - action: action_fetch_wiki
 
-- story: happy path 2
+- story: Wikipedia search - alternative phrasing
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
+      What can you tell me about Nikola Tesla from Wikipedia?
+    intent: search_wikipedia
+    entities:
+      - search_query: "Nikola Tesla"
+  - action: action_fetch_wiki
 
-- story: sad path 1
+- story: Historical figure info
   steps:
   - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
+      Give me information about Leonardo da Vinci.
+    intent: get_historical_figure
+    entities:
+      - historical_figure: "Leonardo da Vinci"
+  - action: action_fetch_historical_figure
 
-- story: sad path 2
+- story: Historical figure info - alternative phrasing
   steps:
   - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      not really
-    intent: deny
-  - action: utter_goodbye
-
-- story: sad path 3
-  steps:
-  - user: |
-      hi
-    intent: greet
-  - action: utter_greet
-  - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
-
-- story: say goodbye
-  steps:
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
+      Who was Cleopatra?
+    intent: get_historical_figure
+    entities:
+      - historical_figure: "Cleopatra"
+  - action: action_fetch_historical_figure
 
 - story: bot challenge
   steps:
