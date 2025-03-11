@@ -4,5 +4,4 @@ httpx
 sqlalchemy
 databases
 python-dotenv
-honcho
-rasa
+
