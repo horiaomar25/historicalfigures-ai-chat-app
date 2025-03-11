@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+  rasa:
+    image: rasa/rasa:latest-full
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./backend:/app
+    command: ["run", "--enable-api", "--cors", "*"]
