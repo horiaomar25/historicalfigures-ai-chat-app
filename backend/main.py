@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from sqlalchemy.orm import Session
 import httpx # To make HTTP requests to Rasa's API
-import .models import Base, Chat, SessionLocal, engine
+from .models import Base, Chat, SessionLocal, engine
 from .utils import format_timestamp
 from datetime import datetime
 
