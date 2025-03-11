@@ -5,5 +5,4 @@ sqlalchemy
 databases
 python-dotenv
 honcho
-rasa==3.5.4  # or the version you're using
-rasa-sdk==3.5.4
+rasa
