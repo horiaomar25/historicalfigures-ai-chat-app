@@ -1,0 +1,13 @@
+# Use the official Rasa image
+FROM rasa/rasa:latest-full
+
+WORKDIR /app
+
+# Copy necessary files for Rasa
+COPY ./backend /app
+
+# Ensure correct entrypoint
+ENTRYPOINT ["rasa"]
+
+# Command to run Rasa
+CMD ["run", "--enable-api", "--cors", "*"]
