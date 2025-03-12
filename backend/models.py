@@ -12,10 +12,10 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False,bind=engine)
 Base = declarative_base()
 
 class Chat(Base):
-    _tablename_ = "chat"
+    __tablename__ = 'chat'
     id = Column(Integer, primary_key=True, index=True)
     user_message = Column(Text, nullable=False)
     rasa_response = Column(Text, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    timestamp = Column(DateTime)
     
 Base.metadata.create_all(bind=engine)
