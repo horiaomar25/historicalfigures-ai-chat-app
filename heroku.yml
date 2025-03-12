@@ -3,4 +3,4 @@ build:
     web: Dockerfile
 
 run:
-  web: docker-composer up
+  web: docker-compose up
