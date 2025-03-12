@@ -1,11 +1,11 @@
 build:
   docker:
-    web: Dockerfile
+    web: Dockerfile  # Points to your Dockerfile for the web (FastAPI) service
 
 run:
   web: uvicorn backend.main:app --host 0.0.0.0 --port 8000
   rasa:
-    image: rasa/rasa:latest-full  # This line specifies the image
+    image: rasa/rasa:latest-full  # Rasa service will use the Rasa Docker image
     command:
       - rasa
       - run
