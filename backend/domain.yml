@@ -55,11 +55,13 @@ slots:
       - type: from_entity
         entity: search_query
 
+  
   historical_figure:
     type: text
     mappings:
       - type: from_entity
         entity: historical_figure
+
 
 session_config:
   session_expiration_time: 60

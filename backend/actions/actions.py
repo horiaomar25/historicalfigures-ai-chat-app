@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import requests
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
 
 load_dotenv()
 
@@ -22,7 +23,8 @@ class ActionWikiData(Action):
             summary = "Sorry, I couldn't retrieve data from Wikipedia."
             
         dispatcher.utter_message(text=summary)
-        return []
+        return [SlotSet("search_query", None)]
+
     
 class ActionFetchHistoricalFigure(Action):
     def name(self):
@@ -30,6 +32,10 @@ class ActionFetchHistoricalFigure(Action):
     
     def run(self, dispatcher, tracker, domain):
         name = tracker.get_slot("historical_figure") # Capture user input
+        
+        if not name:
+            dispatcher.utter_message(text="I couldn't understand which historical figure you're asking about. Could you rephrase?")
+            return [SlotSet("historical_figure", None)]
         
         api_key = os.getenv("API_KEY")
         
@@ -43,15 +49,8 @@ class ActionFetchHistoricalFigure(Action):
             "X-Api-Key": api_key
         }
         
-        # Log the request details
-        print(f"Requesting URL: {url_ninja}")
-        print(f"Headers: {headers}")
         
         response_ninja = requests.get(url_ninja, headers=headers)
-        
-        # Log the response details
-        print(f"Response status code: {response_ninja.status_code}")
-        print(f"Response content: {response_ninja.content}")
         
         if response_ninja.status_code == 200:
             data_ninja = response_ninja.json()
@@ -80,7 +79,7 @@ class ActionFetchHistoricalFigure(Action):
             image_url = ""
         
         
-        card = f"**{name}**\n\n**Wikipedia Summary:**\n{summary}\n\n**API Ninja Info:**\n{info_str}"
+        card = f"{name}\n\nWikipedia Summary:\n{summary}\n\nSummary:\n{info_str}"
         
         dispatcher.utter_message(text=card)
         if image_url:

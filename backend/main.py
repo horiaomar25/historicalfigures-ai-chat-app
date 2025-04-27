@@ -14,9 +14,6 @@ HOST = os.getenv("HOST")
 PORT = os.getenv("PORT")
 DBNAME = os.getenv("DBNAME")
 
-print("USER =", os.getenv("USER"))
-print("PASSWORD =", os.getenv("PASSWORD"))
-
 # Construct the SQLAlchemy connection string
 DATABASE_URL = "postgresql+psycopg2://postgres:your_actual_password@db.ykqzncwwddgyfvbqcyty.supabase.co:5432/postgres"
 

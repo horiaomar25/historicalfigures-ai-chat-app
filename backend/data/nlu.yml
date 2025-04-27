@@ -5,15 +5,35 @@ nlu:
   examples: |
     - Tell me about [Albert Einstein](search_query)
     - What is [Quantum Mechanics](search_query)?
-    - Give me info on [Python programming](search_query)
     - Who is [Ada Lovelace](search_query)?
+    - Tell me about [Cleopatra](historical_figure)
+    - Tell me something about [Florence Nightingale](historical_figure).
+    - Can you provide info on [Nikola Tesla](historical_figure)?
+
+
   
 - intent: get_historical_figure
   examples: |
     - Tell me about [Napoleon Bonaparte](historical_figure)
     - Who was [Leonardo da Vinci](historical_figure)?
     - Give me some information on [Julius Caesar](historical_figure)
+    - Tell me about [Cleopatra](historical_figure)
+    - Tell me something about [Florence Nightingale](historical_figure).
+    - Can you provide info on [Nikola Tesla](historical_figure)?
 
+# reduces the number of examples needed for training
+- lookup: historical_figure
+  examples: |
+    - Albert Einstein
+    - Ada Lovelace
+    - Cleopatra
+    - Florence Nightingale
+    - Nikola Tesla
+    - Napoleon Bonaparte
+    - Leonardo da Vinci
+    - Julius Caesar
 
-
-
+# dynamic searching
+- regex: historical_figure
+  examples: |
+    - [A-Z][a-z]+(?: [A-Z][a-z]+)++
